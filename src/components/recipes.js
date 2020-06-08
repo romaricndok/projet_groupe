@@ -4,16 +4,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaHeart } from 'react-icons/fa';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-toast.configure();
 
 const checkIsPresent = (currentFavorite, titre) => {
   const result = currentFavorite.map(e => e.titre).indexOf(titre);
-  /* console.log('result :', result);
-  console.log('currentFavorite',currentFavorite)
-  console.log('titre',titre) */
   if (result >= 0) {
     return true;
   } else {
@@ -21,13 +14,14 @@ const checkIsPresent = (currentFavorite, titre) => {
   }
 };
 
-const Recipes = ({ titre, image, index, query }) => {
+const Recipes = ({ addFavorite, titre, image, index, query }) => {
   const [currentFavorite, setCurrentFavorite] = useState(
     JSON.parse(localStorage.getItem('favorite'))
       ? JSON.parse(localStorage.getItem('favorite'))
       : []
   );
   useEffect(() => {
+    console.log('current ', currentFavorite);
     localStorage.setItem('favorite', JSON.stringify(currentFavorite));
   }, [currentFavorite]);
 
@@ -35,41 +29,21 @@ const Recipes = ({ titre, image, index, query }) => {
     checkIsPresent(currentFavorite, titre)
   );
 
-  /*  useEffect(() => {
-    console.log('isFavorite', isFavorite);
-  }, []); */
-
-  const addFavorite = (index, titre, image, query) => {
-    const recipeFav = { index, titre, image, query };
-    //console.log('recipeFav',recipeFav);
-
-    const isPresent = checkIsPresent(currentFavorite, titre);
-
-    if (isPresent === false) {
-      setIsFavorite(true);
-      setCurrentFavorite([...currentFavorite, recipeFav]);
-
-      toast.success(
-        'You added ' + recipeFav.titre + ' to favorite Successfully!',
-        { position: toast.POSITION.TOP_CENTER }
-      );
-    } else {
-      const filteredRecipes = currentFavorite.filter(
-        recipe => recipe.titre !== recipeFav.titre
-      );
-      setIsFavorite(false);
-      setCurrentFavorite(filteredRecipes);
-      toast.warning(
-        'You removed ' + recipeFav.titre + ' to favorite Successfully!',
-        { position: toast.POSITION.TOP_CENTER, autoClose: false }
-      );
-    }
-  };
-
   return (
     <MainDiv whileHover={{ scale: 1.05 }}>
       <Icon
-        onClick={() => addFavorite(index, titre, image, query)}
+        onClick={() =>
+          addFavorite(
+            index,
+            titre,
+            image,
+            query,
+            currentFavorite,
+            setCurrentFavorite,
+            setIsFavorite,
+            checkIsPresent
+          )
+        }
         whileTap={{ scale: 1.5 }}
       >
         <FaHeart color={isFavorite ? 'red' : 'gray'} size='auto' />
@@ -109,7 +83,8 @@ Recipes.propTypes = {
   click: PropTypes.func,
   image: PropTypes.string,
   index: PropTypes.number,
-  query: PropTypes.string
+  query: PropTypes.string,
+  addFavorite: PropTypes.func
 };
 
 export default Recipes;
