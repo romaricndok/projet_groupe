@@ -53,6 +53,10 @@ const addFavorite = (
 
 const Home = () => {
   const themeG = useSelector(state => state.themes.themeActuel);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9e6ac0a0cd65dcc9100e1c3cdec115df9da70610
   const [errorMessage, setErrorMessage] = useState('');
   const [currentFavorite, setCurrentFavorite] = useState(
     JSON.parse(localStorage.getItem('favorite'))
@@ -63,6 +67,11 @@ const Home = () => {
     // console.log('current ', currentFavorite);
     localStorage.setItem('favorite', JSON.stringify(currentFavorite));
   }, [currentFavorite]);
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
+>>>>>>> 9e6ac0a0cd65dcc9100e1c3cdec115df9da70610
 
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState('');
@@ -75,12 +84,23 @@ const Home = () => {
     async function fetchData() {
       const response = await getApi(query, currentPage);
       console.log(response);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9e6ac0a0cd65dcc9100e1c3cdec115df9da70610
       if (response.hits) {
         setRecipes(response.hits);
         response.count === 0 ? setTotal(0) : setTotal(50);
       } else {
         setErrorMessage('Erreur : Vérifier votre connexion');
       }
+<<<<<<< HEAD
+=======
+=======
+      setRecipes(response.hits);
+      response.count === 0 ? setTotal(0) : setTotal(50);
+>>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
+>>>>>>> 9e6ac0a0cd65dcc9100e1c3cdec115df9da70610
     }
     fetchData();
   }, [query, currentPage]);
@@ -107,8 +127,16 @@ const Home = () => {
           {recipes.map((recipe, index) => (
             <Recipes
               addFavorite={addFavorite}
+<<<<<<< HEAD
               currentFavorite={currentFavorite}
               setCurrentFavorite={setCurrentFavorite}
+=======
+<<<<<<< HEAD
+              currentFavorite={currentFavorite}
+              setCurrentFavorite={setCurrentFavorite}
+=======
+>>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
+>>>>>>> 9e6ac0a0cd65dcc9100e1c3cdec115df9da70610
               key={recipe.recipe.label}
               titre={recipe.recipe.label}
               image={recipe.recipe.image}
@@ -118,7 +146,14 @@ const Home = () => {
           ))}
         </RecipesStyle>
         <Pagination total={total} setCurrentPage={setCurrentPage}></Pagination>
+<<<<<<< HEAD
         <SpanStyle>{errorMessage}</SpanStyle>
+=======
+<<<<<<< HEAD
+        <SpanStyle>{errorMessage}</SpanStyle>
+=======
+>>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
+>>>>>>> 9e6ac0a0cd65dcc9100e1c3cdec115df9da70610
       </MainContainer>
     </div>
   );
@@ -130,11 +165,20 @@ const RecipesStyle = styled.div`
   flex-wrap: wrap;
 `;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9e6ac0a0cd65dcc9100e1c3cdec115df9da70610
 const SpanStyle = styled.span`
   display: flex;
   justify-content: center;
   color: red;
 `;
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
+>>>>>>> 9e6ac0a0cd65dcc9100e1c3cdec115df9da70610
 const ButtonStyle = styled.button`
   border: none;
   padding: 10px 20px;
