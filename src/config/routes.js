@@ -16,6 +16,8 @@ import { lightTheme, darkTheme } from '../utils/theme/theme';
 import { useSelector } from 'react-redux';
 import Favoris from '../screens/favoris';
 import RecipesForm from '../screens/recipesForm';
+// import MyRecipe from '../screens/myRecipe';
+//  add to switch  <PrivateRoute path='/myRepice' component={MyRecipe} />
 
 const Routes = () => {
   const themeG = useSelector(state => state.themes.themeActuel);
@@ -29,8 +31,9 @@ const Routes = () => {
           <Route path='/login' component={Login} />
           <PrivateRoute path='/home' component={Home} />
           <Route path='/details/:index/:query' component={Details} />
-          <Route path='/favoris' component={Favoris} />
-          <Route path='/create' component={RecipesForm} />
+          <PrivateRoute path='/favoris' component={Favoris} />
+          <PrivateRoute path='/create' component={RecipesForm} />
+
           <Redirect to='/'></Redirect>
         </Switch>
       </Router>
