@@ -1,19 +1,36 @@
+import { FaBorderNone } from 'react-icons/fa';
+
 export const lightTheme = {
-  body: '#E2E2E2',
+  body: 'white',
   text: '#363537',
+  title: 'white',
+  tile: '#212121',
+  tileShadow: 'grey',
+  tileText: 'white',
   toggleBorder: '#FFF',
   gradient: 'linear-gradient(#39598A, #79D7ED)',
   a: 'initial',
-  hoverinput: '#fa987f'
+  hoverinput: '#363537',
+  primaryDark: '#0D0C1D',
+  primaryLight: '#EFFFFA',
+  primaryHover: 'white',
+  mobile: '576px'
 };
 
 export const darkTheme = {
-  body: '#363537',
-  text: '#FAFAFA',
+  body: 'grey',
+  text: 'black',
+  title: 'grey',
+  tile: 'black',
+  tileShadow: 'white',
   toggleBorder: '#6B8096',
   gradient: 'linear-gradient(#091236, #1E215D)',
   a: 'seashell',
-  hoverinput: '#fa987f'
+  hoverinput: '#fa987f',
+  primaryDark: '#0D0C1D',
+  primaryLight: '#cdc7c6',
+  primaryHover: 'black',
+  mobile: '576px'
 };
 
 export const signIn = {

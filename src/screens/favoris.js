@@ -1,9 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Menu from '../components/menu/index';
 import styled from 'styled-components';
 import Recipes from '../components/recipes';
+import Burger from '../components/Burger';
+import MenuBar from '../components/MenuBar';
+import { useOnClickOutside } from '../config/hooks';
 
 const Favoris = () => {
+  const [open, setOpen] = useState(false);
+  const node = useRef();
+  useOnClickOutside(node, () => setOpen(false));
+  const menuId = 'main-menu';
   const [fav, setFav] = useState(
     JSON.parse(localStorage.getItem('favorite'))
       ? JSON.parse(localStorage.getItem('favorite'))
@@ -14,6 +21,10 @@ const Favoris = () => {
   });
   return (
     <div>
+      <div ref={node}>
+        <Burger open={open} setOpen={setOpen} aria-controls={menuId} />
+        <MenuBar open={open} setOpen={setOpen} id={menuId} />
+      </div>
       <Menu></Menu>
       <MainContainer>
         <Titre>La liste des favoris</Titre>

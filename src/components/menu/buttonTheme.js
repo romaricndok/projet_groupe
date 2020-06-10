@@ -24,11 +24,10 @@ const ButtonContainer = styled.button`
   border-radius: 30px;
   cursor: pointer;
   display: flex;
-  font-size: 0.5rem;
+  font-size: 0.3rem;
   justify-content: right;
-  margin: 24px;
+  margin: 0px;
   overflow: hidden;
-
   position: relative;
   width: 5rem;
   float: right;
@@ -36,6 +35,7 @@ const ButtonContainer = styled.button`
   svg {
     height: auto;
     width: 1.5rem;
+    padding: 0.2rem;
     transition: all 0.3s linear;
 
     // sun icon

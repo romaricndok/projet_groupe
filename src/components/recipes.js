@@ -48,7 +48,7 @@ const Recipes = ({ addFavorite, titre, image, index, query }) => {
   );
 
   return (
-    <MainDiv whileHover={{ scale: 1.05 }}>
+    <MainDiv whileHover={{ scale: 1.02 }}>
       <Icon
         onClick={() =>
           addFavorite(
@@ -64,19 +64,19 @@ const Recipes = ({ addFavorite, titre, image, index, query }) => {
         }
         whileTap={{ scale: 1.5 }}
       >
-        <FaHeart color={isFavorite ? 'red' : 'gray'} size='auto' />
+        <FaHeart color={isFavorite ? 'red' : 'white'} size='auto' />
       </Icon>
-      <Link to={`/details/${index}/${query}`}>
+      <StyledLink to={`/details/${index}/${query}`}>
         <h1>{titre}</h1>
         <ImageStyle src={image} />
-      </Link>
+      </StyledLink>
     </MainDiv>
   );
 };
 
 const ImageStyle = styled.img`
-  border-bottom-left-radius: 15%;
-  border-bottom-right-radius: 15%;
+  border-bottom-left-radius: 3%;
+  border-bottom-right-radius: 3%;
 `;
 
 const Icon = styled(motion.div)`
@@ -84,16 +84,26 @@ const Icon = styled(motion.div)`
   width: 30px;
   margin: 10px;
 `;
-
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  max-width: 19em;
+  justify-content: center;
+  color: ${props => props.theme.tileText};
+`;
 const MainDiv = styled(motion.div)`
   border-radius: 10px;
-  box-shadow: 0px 5px 20px;
-  margin: 20px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0px 5px 5px;
+  margin: 10px 5px 40px 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   min-width: 20%;
+  background-color: ${props => props.theme.tile};
+  color: ${props => props.theme.tileShadow};
 `;
 
 Recipes.propTypes = {
