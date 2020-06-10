@@ -7,14 +7,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
-<<<<<<< HEAD
     "firebase": "^7.15.0",
-=======
-<<<<<<< HEAD
-    "firebase": "^7.15.0",
-=======
->>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
->>>>>>> 9e6ac0a0cd65dcc9100e1c3cdec115df9da70610
     "framer-motion": "^1.11.0",
     "http-server": "^0.12.3",
     "i18next": "^19.4.5",
@@ -34,17 +27,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-<<<<<<< HEAD
     "eject": "react-scripts eject",
     "start-http": "http-server ./build"
-=======
-<<<<<<< HEAD
-    "eject": "react-scripts eject",
-    "start-http": "http-server ./build"
-=======
-    "eject": "react-scripts eject"
->>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
->>>>>>> 9e6ac0a0cd65dcc9100e1c3cdec115df9da70610
   },
   "eslintConfig": {
     "extends": "react-app"

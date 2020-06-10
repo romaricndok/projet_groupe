@@ -56,20 +56,6 @@ const addFavorite = (
 
 const Home = () => {
   const themeG = useSelector(state => state.themes.themeActuel);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [currentFavorite, setCurrentFavorite] = useState(
-    JSON.parse(localStorage.getItem('favorite'))
-      ? JSON.parse(localStorage.getItem('favorite'))
-      : []
-  );
-  useEffect(() => {
-    // console.log('current ', currentFavorite);
-    localStorage.setItem('favorite', JSON.stringify(currentFavorite));
-  }, [currentFavorite]);
-
-
-const Home = () => {
-  const themeG = useSelector(state => state.themes.themeActuel);
   const [open, setOpen] = useState(false);
   const node = useRef();
   useOnClickOutside(node, () => setOpen(false));
@@ -77,7 +63,12 @@ const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState('couscous');
-
+  const [errorMessage, setErrorMessage] = useState('');
+  const [currentFavorite, setCurrentFavorite] = useState(
+    JSON.parse(localStorage.getItem('favorite'))
+      ? JSON.parse(localStorage.getItem('favorite'))
+      : []
+  );
   const [total, setTotal] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -94,7 +85,10 @@ const Home = () => {
     }
     fetchData();
   }, [query, currentPage]);
-
+  useEffect(() => {
+    // console.log('current ', currentFavorite);
+    localStorage.setItem('favorite', JSON.stringify(currentFavorite));
+  }, [currentFavorite]);
   const updateSearch = e => {
     setSearch(e.target.value);
   };
@@ -122,7 +116,6 @@ const Home = () => {
           {recipes.map((recipe, index) => (
             <Recipes
               addFavorite={addFavorite}
-
               currentFavorite={currentFavorite}
               setCurrentFavorite={setCurrentFavorite}
               key={recipe.recipe.label}
@@ -148,7 +141,6 @@ const RecipesStyle = styled.div`
   text-decoration: none;
   font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
 `;
-
 
 const SpanStyle = styled.span`
   display: flex;

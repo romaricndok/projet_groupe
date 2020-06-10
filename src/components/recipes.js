@@ -14,10 +14,6 @@ const checkIsPresent = (currentFavorite, titre) => {
   }
 };
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 9e6ac0a0cd65dcc9100e1c3cdec115df9da70610
 const Recipes = ({
   addFavorite,
   titre,
@@ -27,22 +23,6 @@ const Recipes = ({
   currentFavorite,
   setCurrentFavorite
 }) => {
-<<<<<<< HEAD
-=======
-=======
-const Recipes = ({ addFavorite, titre, image, index, query }) => {
-  const [currentFavorite, setCurrentFavorite] = useState(
-    JSON.parse(localStorage.getItem('favorite'))
-      ? JSON.parse(localStorage.getItem('favorite'))
-      : []
-  );
-  useEffect(() => {
-    console.log('current ', currentFavorite);
-    localStorage.setItem('favorite', JSON.stringify(currentFavorite));
-  }, [currentFavorite]);
-
->>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
->>>>>>> 9e6ac0a0cd65dcc9100e1c3cdec115df9da70610
   const [isFavorite, setIsFavorite] = useState(
     checkIsPresent(currentFavorite, titre)
   );
@@ -112,7 +92,9 @@ Recipes.propTypes = {
   image: PropTypes.string,
   index: PropTypes.number,
   query: PropTypes.string,
-  addFavorite: PropTypes.func
+  addFavorite: PropTypes.func,
+  currentFavorite: PropTypes.object,
+  setCurrentFavorite: PropTypes.func
 };
 
 export default Recipes;
