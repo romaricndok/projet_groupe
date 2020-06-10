@@ -1,7 +1,11 @@
 {
     "translation" : {
         "HOME": "ACCUEIL",
+<<<<<<< HEAD
         "MY RECIPES" : "MES RECETTES",
+=======
+        "CREATE" : "CREER",
+>>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
         "FAVORITES": "FAVORIS"
     }
 }

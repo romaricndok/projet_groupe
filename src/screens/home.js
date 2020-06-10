@@ -53,6 +53,7 @@ const addFavorite = (
 
 const Home = () => {
   const themeG = useSelector(state => state.themes.themeActuel);
+<<<<<<< HEAD
   const [errorMessage, setErrorMessage] = useState('');
   const [currentFavorite, setCurrentFavorite] = useState(
     JSON.parse(localStorage.getItem('favorite'))
@@ -63,6 +64,8 @@ const Home = () => {
     // console.log('current ', currentFavorite);
     localStorage.setItem('favorite', JSON.stringify(currentFavorite));
   }, [currentFavorite]);
+=======
+>>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
 
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState('');
@@ -75,12 +78,17 @@ const Home = () => {
     async function fetchData() {
       const response = await getApi(query, currentPage);
       console.log(response);
+<<<<<<< HEAD
       if (response.hits) {
         setRecipes(response.hits);
         response.count === 0 ? setTotal(0) : setTotal(50);
       } else {
         setErrorMessage('Erreur : Vérifier votre connexion');
       }
+=======
+      setRecipes(response.hits);
+      response.count === 0 ? setTotal(0) : setTotal(50);
+>>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
     }
     fetchData();
   }, [query, currentPage]);
@@ -107,8 +115,11 @@ const Home = () => {
           {recipes.map((recipe, index) => (
             <Recipes
               addFavorite={addFavorite}
+<<<<<<< HEAD
               currentFavorite={currentFavorite}
               setCurrentFavorite={setCurrentFavorite}
+=======
+>>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
               key={recipe.recipe.label}
               titre={recipe.recipe.label}
               image={recipe.recipe.image}
@@ -118,7 +129,10 @@ const Home = () => {
           ))}
         </RecipesStyle>
         <Pagination total={total} setCurrentPage={setCurrentPage}></Pagination>
+<<<<<<< HEAD
         <SpanStyle>{errorMessage}</SpanStyle>
+=======
+>>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
       </MainContainer>
     </div>
   );
@@ -130,11 +144,14 @@ const RecipesStyle = styled.div`
   flex-wrap: wrap;
 `;
 
+<<<<<<< HEAD
 const SpanStyle = styled.span`
   display: flex;
   justify-content: center;
   color: red;
 `;
+=======
+>>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
 const ButtonStyle = styled.button`
   border: none;
   padding: 10px 20px;

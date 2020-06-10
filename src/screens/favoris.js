@@ -19,10 +19,20 @@ const Favoris = () => {
         <Titre>La liste des favoris</Titre>
         <RecipesStyle>
           {fav.map(recipe => (
+<<<<<<< HEAD
             <MainDiv key={recipe.titre}>
               <p>{recipe.titre}</p>
               <img src={recipe.image} />
             </MainDiv>
+=======
+            <Recipes
+              key={recipe.titre}
+              titre={recipe.titre}
+              image={recipe.image}
+              index={recipe.index}
+              query={recipe.query}
+            />
+>>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
           ))}
         </RecipesStyle>
       </MainContainer>
@@ -47,6 +57,7 @@ const Titre = styled.h1`
 const MainContainer = styled.div`
   padding: 50px 0 20px;
 `;
+<<<<<<< HEAD
 const MainDiv = styled.div`
   border-radius: 10px;
   box-shadow: 0px 5px 20px;
@@ -57,5 +68,7 @@ const MainDiv = styled.div`
   align-items: center;
   min-width: 20%;
 `;
+=======
+>>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
 
 export default Favoris;

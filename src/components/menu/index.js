@@ -17,8 +17,13 @@ const Menu = () => {
             </Link>
           </List>
           <List>
+<<<<<<< HEAD
             <Link to='/myRecipe'>
               <Titre>{t('MY RECIPES')}</Titre>
+=======
+            <Link to='/create'>
+              <Titre>{t('CREATE')}</Titre>
+>>>>>>> e1fd22a9e954b16df78e79035bffb7c2c20c639b
             </Link>
           </List>
           <List>
