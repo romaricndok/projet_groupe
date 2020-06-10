@@ -18,6 +18,7 @@ const Details = props => {
   const node = useRef();
   useOnClickOutside(node, () => setOpen(false));
   const menuId = 'main-menu';
+  console.log(props);
   useEffect(() => {
     async function fetchData() {
       const response = await getApiDetail(

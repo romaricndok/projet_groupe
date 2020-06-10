@@ -13,7 +13,7 @@ export const getApi = (query, currentPage) =>
       return res.data;
     })
     .catch(err => {
-      console.log(err);
+      return err;
     });
 
 export const getApiDetail = (query, index) =>

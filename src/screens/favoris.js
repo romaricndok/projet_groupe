@@ -5,6 +5,8 @@ import Recipes from '../components/recipes';
 import Burger from '../components/Burger';
 import MenuBar from '../components/MenuBar';
 import { useOnClickOutside } from '../config/hooks';
+import { FaHeart } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Favoris = () => {
   const [open, setOpen] = useState(false);
@@ -26,14 +28,21 @@ const Favoris = () => {
         <MenuBar open={open} setOpen={setOpen} id={menuId} />
       </div>
       <Menu></Menu>
+
       <MainContainer>
         <Titre>La liste des favoris</Titre>
         <RecipesStyle>
           {fav.map(recipe => (
-            <MainDiv key={recipe.titre}>
-              <p>{recipe.titre}</p>
-              <img src={recipe.image} />
-            </MainDiv>
+            <Link
+              key={recipe.titre}
+              to={`/details/${recipe.index}/${recipe.query}`}
+            >
+              <MainDiv>
+                <FaHeart color='red' size='5vh' />
+                <p>{recipe.titre}</p>
+                <img src={recipe.image} />
+              </MainDiv>
+            </Link>
           ))}
         </RecipesStyle>
       </MainContainer>
@@ -46,6 +55,7 @@ const RecipesStyle = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
 `;
+
 const Titre = styled.h1`
   padding: 20px;
   margin: 20px;

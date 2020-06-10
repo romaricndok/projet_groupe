@@ -1,14 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import Menu from '../components/menu/index';
 import { Link } from 'react-router-dom';
+import Burger from '../components/Burger';
+import MenuBar from '../components/MenuBar';
+import { useOnClickOutside } from '../config/hooks';
 
 const MyRecipe = () => {
   const history = useHistory();
   const [ingredients, setIngredient] = useState([]);
   const [images, setImage] = useState([]);
   const [titres, setTitre] = useState([]);
+  const [open, setOpen] = useState(false);
+  const node = useRef();
+  const menuId = 'main-menu';
+  useOnClickOutside(node, () => setOpen(false));
 
   useEffect(() => {
     async function fetchData() {
@@ -48,6 +55,10 @@ const MyRecipe = () => {
 
   return (
     <div>
+      <div ref={node}>
+        <Burger open={open} setOpen={setOpen} aria-controls={menuId} />
+        <MenuBar open={open} setOpen={setOpen} id={menuId} />
+      </div>
       <Menu></Menu>
       <MainContainer>
         <RecipesStyle>{afficheImage}</RecipesStyle>

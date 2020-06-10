@@ -13,12 +13,6 @@ const MenuBar = ({ open }) => {
         </span>
         Acceuil
       </a>
-      <a href='/create'>
-        <span role='img' aria-label='cook'>
-          🍳
-        </span>
-        Creer
-      </a>
       <a href='/favoris'>
         <span role='img' aria-label='love'>
           ❤️
@@ -27,7 +21,7 @@ const MenuBar = ({ open }) => {
       </a>
       <a href='/myRecipe'>
         <span role='img' aria-label='spoon'>
-          🥄
+          🍳
         </span>
         Mes Recettes
       </a>
