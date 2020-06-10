@@ -35,7 +35,7 @@ const Menu = () => {
           </List>
           <List>
             <StyledLink to='/myRecipe'>
-              <Titre>{t('MES RECETTES')}</Titre>
+              <Titre>{t('MY RECIPES')}</Titre>
             </StyledLink>
           </List>
         </ListContainer>
@@ -65,9 +65,9 @@ const Menu = () => {
         </ListContainer>
       </FakeLinkContainer>
       <RightContainer>
-        <ButtonEn onClick={() => i18n.changeLanguage('fr')}>EN</ButtonEn>
-        <ButtonFr onClick={() => i18n.changeLanguage('en')}>FR</ButtonFr>
-        <Buttondeco disconnect={disconnect} label='Deconnexion'></Buttondeco>
+        <ButtonFr onClick={() => i18n.changeLanguage('fr')}>FR</ButtonFr>
+        <ButtonEn onClick={() => i18n.changeLanguage('en')}>EN</ButtonEn>
+        <Buttondeco disconnect={disconnect} label={t('LOGOUT')}></Buttondeco>
         <ButtonContain>
           <ButtonTheme></ButtonTheme>
         </ButtonContain>
@@ -102,7 +102,7 @@ const MenuContainer = styled.div`
   display: flex;
   padding: 10px;
 `;
-const ButtonFr = styled.button`
+const ButtonEn = styled.button`
    justify-content: right;
   border: solid 2px;
   border-radius: 5px;
@@ -117,7 +117,7 @@ margin: 0vh 0.2vh 0 0vh;
   
   }
 `;
-const ButtonEn = styled.button`
+const ButtonFr = styled.button`
   border: solid 2px;
   border-radius: 5px;
   margin-right: 12px;

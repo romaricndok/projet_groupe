@@ -2,6 +2,9 @@
     "translation" : {
         "HOME": "HOME",
         "CREATE" : "CREATE",
-        "FAVORITES": "FAVORITES"
+        "FAVORITES": "FAVORITES",
+        "MY RECIPES": "MY RECIPES",
+        "LOGOUT": "LOGOUT"
+
     }
 }

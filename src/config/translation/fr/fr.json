@@ -2,6 +2,8 @@
     "translation" : {
         "HOME": "ACCUEIL",
         "CREATE" : "CREER",
-        "FAVORITES": "FAVORIS"
+        "FAVORITES": "FAVORIS",
+        "MY RECIPES": "MES RECETTES",
+        "LOGOUT": "DECONNEXION"
     }
 }

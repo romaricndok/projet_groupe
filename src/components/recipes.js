@@ -72,7 +72,7 @@ const Recipes = ({ titre, image, index, query }) => {
         onClick={() => addFavorite(index, titre, image, query)}
         whileTap={{ scale: 1.5 }}
       >
-        <FaHeart color={isFavorite ? 'red' : 'gray'} size='auto' />
+        <FaHeart color={isFavorite ? 'red' : 'white'} size='auto' />
       </Icon>
       <StyledLink to={`/details/${index}/${query}`}>
         <h1>{titre}</h1>
@@ -94,6 +94,8 @@ const Icon = styled(motion.div)`
 `;
 const StyledLink = styled(Link)`
   text-decoration: none;
+  max-width: 19em;
+  justify-content: center;
   color: ${props => props.theme.tileText};
 `;
 const MainDiv = styled(motion.div)`
@@ -101,8 +103,8 @@ const MainDiv = styled(motion.div)`
   padding: 5px;
   text-align: center;
   text-decoration: none;
-  box-shadow: 0px 5px 20px;
-  margin: 20px;
+  box-shadow: 0px 5px 5px;
+  margin: 10px 5px 40px 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
