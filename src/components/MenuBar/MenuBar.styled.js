@@ -4,7 +4,7 @@ export const StyledMenuBar = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: ${({ theme }) => theme.body};
+  background: ${({ theme }) => theme.burger};
   height: 100vh;
   text-align: left;
   padding: 2rem;

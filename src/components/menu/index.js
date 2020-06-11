@@ -79,7 +79,10 @@ const Titre = styled.h4`
 `;
 
 const MenuContainer = styled.div`
-  height: 2rem;
+  height: 3rem;
+  @media (max-width: 767px) {
+    height: 2rem;
+  }
   background-color: ${props => props.theme.text};
   position: fixed;
   width: auto;

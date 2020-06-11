@@ -5,6 +5,7 @@ export const lightTheme = {
   text: '#363537',
   title: 'white',
   tile: '#212121',
+  burger: '#f1c40f',
   tileShadow: 'grey',
   tileText: 'white',
   toggleBorder: '#FFF',
@@ -13,7 +14,7 @@ export const lightTheme = {
   hoverinput: '#363537',
   primaryDark: '#0D0C1D',
   primaryLight: '#EFFFFA',
-  primaryHover: 'white',
+  primaryHover: 'black',
   mobile: '576px'
 };
 
@@ -22,6 +23,7 @@ export const darkTheme = {
   text: 'black',
   title: 'grey',
   tile: 'black',
+  burger: '#8e44ad',
   tileShadow: 'white',
   toggleBorder: '#6B8096',
   gradient: 'linear-gradient(#091236, #1E215D)',
@@ -29,7 +31,7 @@ export const darkTheme = {
   hoverinput: '#fa987f',
   primaryDark: '#0D0C1D',
   primaryLight: '#cdc7c6',
-  primaryHover: 'black',
+  primaryHover: 'white',
   mobile: '576px'
 };
 

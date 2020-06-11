@@ -76,6 +76,7 @@ const Form = () => {
           {ingredientState.map((val, idx) => {
             return (
               <div key={`ingredient-${idx}`}>
+                <Spacer></Spacer>
                 <IngredientInputs
                   idx={idx}
                   ingredientState={ingredientState}
@@ -96,14 +97,20 @@ const Form = () => {
 
 const FormStyle = styled.form``;
 
+const Spacer = styled.form`
+  margin: 10px;
+`;
+
 const InputTitle = styled.input`
-  margin-left: 15px;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const InputButton = styled.input`
   display: block;
   padding: 5px 10px;
-  margin: 15px auto 0;
+  margin: 15px 35%;
 `;
 
 const MainContainer = styled.div`

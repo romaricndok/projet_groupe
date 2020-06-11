@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Burger from '../components/Burger';
 import MenuBar from '../components/MenuBar';
 import { useOnClickOutside } from '../config/hooks';
+import { motion } from 'framer-motion';
 
 const MyRecipe = () => {
   const history = useHistory();
@@ -45,12 +46,12 @@ const MyRecipe = () => {
   };
 
   const afficheImage = images.map((image, idx) => (
-    <Link key={`image-${idx}`} to={`/myDetails/${idx}`}>
-      <MainDiv>
+    <StyledLink key={`image-${idx}`} to={`/myDetails/${idx}`}>
+      <MainDiv whileHover={{ scale: 1.02 }}>
         <h1>{titres[idx]}</h1>
         <ImageStyle src={image} />
       </MainDiv>
-    </Link>
+    </StyledLink>
   ));
 
   return (
@@ -70,27 +71,39 @@ const MyRecipe = () => {
   );
 };
 
-const ImageStyle = styled.img`
-  border-bottom-left-radius: 15%;
-  border-bottom-right-radius: 15%;
-  width: 300px;
-  height: 300px;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  max-width: 19em;
+  justify-content: center;
+  font-weight: 50em;
 `;
 
-const MainDiv = styled.div`
+const ImageStyle = styled.img`
+  border-radius: 3%;
+  width: 250px;
+  height: 250px;
+`;
+
+const MainDiv = styled(motion.div)`
   border-radius: 10px;
-  box-shadow: 0px 5px 20px;
-  margin: 20px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0px 5px 5px;
+  margin: 50px 5px 40px 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  min-width: 40%;
+  min-width: 20%;
+  background-color: ${props => props.theme.tile};
+  color: ${props => props.theme.tileShadow};
 `;
 const RecipesStyle = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
 `;
 
 const ButtonStyle = styled.button`

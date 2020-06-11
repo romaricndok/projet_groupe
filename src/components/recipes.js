@@ -44,7 +44,7 @@ const Recipes = ({
         }
         whileTap={{ scale: 1.5 }}
       >
-        <FaHeart color={isFavorite ? 'red' : 'white'} size='auto' />
+        <FaHeart color={isFavorite ? 'red' : '#7f8c8d'} size='auto' />
       </Icon>
       <StyledLink to={`/details/${index}/${query}`}>
         <h1>{titre}</h1>
@@ -68,7 +68,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   max-width: 19em;
   justify-content: center;
-  color: ${props => props.theme.tileText};
+  color: ${props => props.theme.body};
 `;
 const MainDiv = styled(motion.div)`
   border-radius: 10px;

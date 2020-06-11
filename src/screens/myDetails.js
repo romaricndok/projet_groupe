@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Burger from '../components/Burger';
 import MenuBar from '../components/MenuBar';
 import { useOnClickOutside } from '../config/hooks';
+import { motion } from 'framer-motion';
 
 const MyDetails = props => {
   const [myIngredient, setMyIngredient] = useState([]);
@@ -52,10 +53,10 @@ const MyDetails = props => {
       <MainContainer>
         <RecipesStyle>
           {
-            <MainDiv>
-              <Link to='null'>
+            <MainDiv whileHover={{ scale: 1.02 }}>
+              <StyledLink to='null'>
                 <h1>{titres[element]}</h1>
-              </Link>
+              </StyledLink>
               <ImageStyle src={images[element]} alt={images[element]} />
               <h4>Ingredients</h4>
               <ol>
@@ -70,23 +71,32 @@ const MyDetails = props => {
     </div>
   );
 };
-
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  max-width: 19em;
+  justify-content: center;
+  color: ${props => props.theme.tileShadow};
+`;
 const ImageStyle = styled.img`
-  border-bottom-left-radius: 15%;
-  border-bottom-right-radius: 15%;
+  border-radius: 3%;
   width: 300px;
   height: 300px;
 `;
 
-const MainDiv = styled.div`
+const MainDiv = styled(motion.div)`
   border-radius: 10px;
-  box-shadow: 0px 5px 20px;
-  margin: 20px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0px 5px 5px;
+  margin: 50px 5px 40px 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  min-width: 40%;
+  min-width: 20%;
+  background-color: ${props => props.theme.tile};
+  color: ${props => props.theme.tileShadow};
 `;
 const RecipesStyle = styled.div`
   display: flex;

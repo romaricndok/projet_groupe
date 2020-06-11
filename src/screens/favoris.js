@@ -7,6 +7,7 @@ import MenuBar from '../components/MenuBar';
 import { useOnClickOutside } from '../config/hooks';
 import { FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Favoris = () => {
   const [open, setOpen] = useState(false);
@@ -33,16 +34,16 @@ const Favoris = () => {
         <Titre>La liste des favoris</Titre>
         <RecipesStyle>
           {fav.map(recipe => (
-            <Link
+            <StyledLink
               key={recipe.titre}
               to={`/details/${recipe.index}/${recipe.query}`}
             >
-              <MainDiv>
-                <FaHeart color='red' size='5vh' />
+              <MainDiv whileHover={{ scale: 1.02 }}>
+                <FaHeart color='red' size='3vh' />
                 <p>{recipe.titre}</p>
-                <img src={recipe.image} />
+                <ImageStyle src={recipe.image} />
               </MainDiv>
-            </Link>
+            </StyledLink>
           ))}
         </RecipesStyle>
       </MainContainer>
@@ -50,12 +51,41 @@ const Favoris = () => {
   );
 };
 
+const ImageStyle = styled.img`
+  border-radius: 3%;
+  width: 250px;
+  height: 250px;
+`;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  max-width: 19em;
+  justify-content: center;
+  color: ${props => props.theme.body};
+`;
 const RecipesStyle = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-top: 20px;
+  text-decoration: none;
+  font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: 0px 50px;
 `;
-
+const MainDiv = styled(motion.div)`
+  border-radius: 10px;
+  padding: 30px 30px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0px 5px 5px;
+  margin: 10px 30px 30px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 40%;
+  background-color: ${props => props.theme.tile};
+  color: ${props => props.theme.tileShadow};
+`;
 const Titre = styled.h1`
   padding: 20px;
   margin: 20px;
@@ -66,14 +96,5 @@ const Titre = styled.h1`
 const MainContainer = styled.div`
   padding: 50px 0 20px;
 `;
-const MainDiv = styled.div`
-  border-radius: 10px;
-  box-shadow: 0px 5px 20px;
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  min-width: 20%;
-`;
+
 export default Favoris;

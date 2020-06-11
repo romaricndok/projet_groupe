@@ -36,7 +36,7 @@ const Signin = ({ submit }) => {
 const Page = styled.body`
   margin: 0;
   padding: 10px;
-  background-color: ${props => props.theme.primary};
+  background-color: ${props => props.theme.body};
 `;
 
 const Error = styled.span`
@@ -66,7 +66,7 @@ const StyledSpan = styled.span`
 `;
 
 const StyledForm = styled.form`
-  border: groove ${props => props.theme.secondary};
+  border: groove ${props => props.theme.body};
   border-radius: 40px;
   padding: 30px;
   margin: 180px 290px;
@@ -107,7 +107,7 @@ const StyledForm = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${props => props.theme.secondary};
+  background-color: ${props => props.theme.body};
   font-family: Georgia;
 `;
 
@@ -115,8 +115,8 @@ const SigninInput = styled.input`
   font-family: Georgia;
   margin: 6px 0px;
   border-radius: 20px;
-  border: none;
-  background-color: ${props => props.theme.primary};
+  border: solid 1px ${props => props.theme.tileShadow};
+  background-color: ${props => props.theme.body};
   height: 30px;
   width: 20rem;
   @media (max-width: 668px) {
@@ -169,7 +169,7 @@ const Button = styled.button`
   height: 3rem;
   background: ${props => props.theme.primary};
   &:hover {
-    background-color: ${props => props.theme.hoverinput};
+    background-color: ${props => props.theme.burger};
   }
   width: 20rem;
   @media (max-width: 668px) {
